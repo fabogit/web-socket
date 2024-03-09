@@ -11,3 +11,14 @@ app.use(express.static(publicPath));
 
 const expressServer = app.listen(8000);
 const io = new Server(expressServer);
+
+io.on("connection", (socket) => {
+  console.log(socket.id, "Server connected");
+  // will emit event from the server
+  socket.emit("messageFromServer", { data: "Socket server payload" });
+
+  // listener will catch incoming event from the client
+  socket.on("messageFromClient", (data) => {
+    console.log(data);
+  });
+});
