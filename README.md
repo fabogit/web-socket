@@ -6,26 +6,18 @@ use node ver 20
 
 Will use the native browser `WebSocket` api and node `ws` to create a websocket connection
 
-install server packages
+- install server packages: `npm i`
 
-`npm i`
+- run server: `npm run start:dev`
 
-run server
-
-`npm run start:dev`
-
-then open `ws-browser-api.html` file to connect the client to ws server (and check the browser console)
+- open `ws-browser-api.html` file to connect the client to ws server (and check the browser console)o
 
 ## socket.IO
 
 Will use `socket.io` (client & server) to create a websocket connection
 
-install server packages
+- install server packages: `npm i`
 
-`npm i`
+- run server: `npm run start:dev`
 
-run server
-
-`npm run start:dev`
-
-in the browser go to `localhost:8000/client.html` to connect the client to ws server (and check the browser console)
+- in the browser go to `localhost:8000/client.html` to connect the client to ws server (and check the browser console)
