@@ -15,7 +15,8 @@ const io = new Server(expressServer);
 io.on("connection", (socket) => {
   console.log(socket.id, "Server connected");
   // will emit event from the server
-  socket.emit("messageFromServer", { data: "Socket server payload" });
+  const now = new Date().toISOString();
+  socket.emit("messageFromServer", { data: `Socket server payload at ${now}` });
 
   // listener will catch incoming event from the client
   socket.on("messageFromClient", (data) => {
