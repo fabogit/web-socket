@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+    <title>Socket.IO</title>
+    <!-- Add io to global -->
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+
+  <body>
+    <script>
+      const socket = io("http://localhost:8000");
+
+      socket.on("connect", () => {
+        console.log(socket.id, "Client connected");
+        const now = new Date().toISOString();
+        // will emit event from the client, also when reconnect
+        socket.emit("messageFromClient", {
+          data: `Socket client payload at ${now}`,
+        });
+      });
+
+      // listener will catch incoming event from the server
+      socket.on("messageFromServer", (data) => {
+        console.log(data);
+      });
+
+      socket.io.on("reconnect", (data) => {
+        const now = new Date().toISOString();
+        console.log(`Reconnected at ${now}`);
+        console.log(data);
+      });
+    </script>
+
+    <h1>Open the browser console</h1>
+  </body>
+</html>
