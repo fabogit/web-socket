@@ -1,0 +1,21 @@
+{
+  "name": "native-ws",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "ws-node-api.js",
+  "dependencies": {
+    "nodemon": "^3.1.0",
+    "ws": "^8.16.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon ws-node-api.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
